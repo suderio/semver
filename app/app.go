@@ -21,20 +21,21 @@ type Semver struct {
 
 // Show prints the semantic version
 func Show(semver Semver, verbose bool, linebreak bool) {
-	var templ string
+	var sepVersion, sepRelease, sepBuild = " ", " ", " "
+	var majorStr, minorStr, patchStr, releaseStr, buildStr = "", "", "", "", ""
 	if verbose {
-		if linebreak {
-			templ = "Major: {{ .Major}}\nMinor: {{ .Minor}}\nPatch: {{ .Patch}}\n{{if .Release}}Release: {{ .Release}}\n{{end}}{{if .Build}}Build: {{ .Build}}\n{{end}}"
-		} else {
-			templ = "Major: {{ .Major}} Minor: {{ .Minor}} Patch: {{ .Patch}} {{if .Release}}Release: {{ .Release}}{{end}} {{if .Build}}Build: {{ .Build}}{{end}}\n"
-		}
+		majorStr = "Major: "
+		minorStr = "Minor: "
+		patchStr = "Patch: "
+		releaseStr = "Release: "
+		buildStr = "Build: "
 	} else {
-		if linebreak {
-			templ = "{{ .Major}}\n{{ .Minor}}\n{{ .Patch}}\n{{if .Release}}{{ .Release}}\n{{end}}{{if .Build}}{{ .Build}}\n{{end}}"
-		} else {
-			templ = "{{ .Major}}.{{ .Minor}}.{{ .Patch}}{{if .Release}}-{{ .Release}}{{end}}{{if .Build}}+{{ .Build}}{{end}}\n"
-		}
+		sepVersion, sepRelease, sepBuild = ".", "-", "+"
 	}
+	if linebreak {
+		sepVersion, sepRelease, sepBuild = "\n", "\n", "\n"
+	}
+	var templ = majorStr + "{{ .Major}}" + sepVersion + minorStr + "{{ .Minor}}" + sepVersion + patchStr + "{{ .Patch}}{{if .Release}}" + sepRelease + releaseStr + "{{ .Release}}{{end}}{{if .Build}}" + sepBuild + buildStr + "{{ .Build}}{{end}}\n"
 
 	t, err := template.New("semver").Parse(templ)
 	if err != nil {

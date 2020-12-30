@@ -1,7 +1,15 @@
 # semver
 
 Command-line tool for semantic versioning.
-## Reference
+
+## Usage
+
+semver 1.2.3
+1 2 3
+
+semver up 1.2.3
+1 2 4
+## References
 
 https://semver.org/
 
@@ -22,9 +30,6 @@ Used regex:
 ├── app
 │   ├── app.go
 │   └── app_test.go
-├── config
-│   ├── config.go
-│   └── config_test.go
 ├── dev-compose.yml
 ├── go.mod
 ├── go.sum
