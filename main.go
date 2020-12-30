@@ -1,7 +1,7 @@
 package main
 
 import (
-	"semver/parser"
+	"github.com/suderio/semver/parser"
 )
 
 func main() {
