@@ -3,12 +3,20 @@
 Command-line tool for semantic versioning.
 
 ## Usage
-
+```bash
 semver 1.2.3
-1 2 3
+1.2.3
 
 semver up 1.2.3
-1 2 4
+1.2.4
+
+semver set 1.2.3 --minor 3
+1.3.0
+
+semver 1.2.3 --verbose
+Major: 1 Minor: 2 Patch: 3
+```
+
 ## References
 
 https://semver.org/
