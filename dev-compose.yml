@@ -1,0 +1,6 @@
+version: "3.4"
+services:
+  tests:
+    build: .
+    working_dir: /go/src/github.com/suderio/semver
+    entrypoint: go test -v -covermode=count ./...

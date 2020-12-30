@@ -1,12 +1,20 @@
 # semver
 
 Command-line tool for semantic versioning.
+## Reference
+
+https://semver.org/
+
+Used regex:
+
+```
+^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+```
 
 ## Directory layout
 
 ```bash
 .
-├── CONTRIBUTING.md
 ├── Dockerfile
 ├── LICENSE
 ├── Makefile
@@ -24,11 +32,5 @@ Command-line tool for semantic versioning.
 ├── parser
 │   ├── parser.go
 │   └── parser_test.go
-├── ssh
-│   ├── ssh.go
-│   └── ssh_test.go
-└── vendor
-    ├── github.com
-    ├── golang.org
-    └── modules.txt
+
 ```
