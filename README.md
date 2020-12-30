@@ -4,6 +4,7 @@ Command-line tool for semantic versioning.
 
 ## Directory layout
 
+```bash
 .
 ├── CONTRIBUTING.md
 ├── Dockerfile
@@ -30,3 +31,4 @@ Command-line tool for semantic versioning.
     ├── github.com
     ├── golang.org
     └── modules.txt
+```
