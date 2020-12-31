@@ -2,7 +2,7 @@ package app
 
 import (
 	"errors"
-	"os"
+	"io"
 	"regexp"
 	"strconv"
 	"text/template"
@@ -20,7 +20,7 @@ type Semver struct {
 }
 
 // Show prints the semantic version
-func Show(semver Semver, verbose bool, linebreak bool) {
+func Show(wr io.Writer, semver Semver, verbose bool, linebreak bool) {
 	var sepVersion, sepRelease, sepBuild = " ", " ", " "
 	var majorStr, minorStr, patchStr, releaseStr, buildStr = "", "", "", "", ""
 	if verbose {
@@ -41,7 +41,7 @@ func Show(semver Semver, verbose bool, linebreak bool) {
 	if err != nil {
 		panic(err)
 	}
-	err = t.Execute(os.Stdout, semver)
+	err = t.Execute(wr, semver)
 	if err != nil {
 		panic(err)
 	}

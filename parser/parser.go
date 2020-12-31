@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/suderio/semver/app"
 	"github.com/thatisuday/commando"
@@ -31,7 +32,7 @@ func Parse() {
 				fmt.Printf("%q is not a valid semantic version\n", semver)
 				return
 			}
-			app.Show(v, verbose, linebreak)
+			app.Show(os.Stdout, v, verbose, linebreak)
 		})
 
 	commando.
@@ -55,7 +56,7 @@ func Parse() {
 				fmt.Printf("%q is not a valid semantic version\n", semver)
 				return
 			}
-			app.Show(v, verbose, linebreak)
+			app.Show(os.Stdout, v, verbose, linebreak)
 		})
 
 	commando.
@@ -79,7 +80,7 @@ func Parse() {
 				fmt.Printf("%q is not a valid semantic version\n", semver)
 				return
 			}
-			app.Show(v, verbose, linebreak)
+			app.Show(os.Stdout, v, verbose, linebreak)
 		})
 
 	commando.
@@ -108,7 +109,7 @@ func Parse() {
 				fmt.Printf("%q is not a valid semantic version\n", semver)
 				return
 			}
-			app.Show(v, verbose, linebreak)
+			app.Show(os.Stdout, v, verbose, linebreak)
 		})
 	commando.Parse(nil)
 }
