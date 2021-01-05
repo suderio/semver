@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/suderio/semver/parser"
+	"github.com/suderio/semver/cli"
 )
 
 func main() {
-	parser.Parse()
+	cli.Parse()
 }

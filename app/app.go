@@ -1,6 +1,7 @@
 package app
 
 import (
+	"bytes"
 	"errors"
 	"io"
 	"regexp"
@@ -135,8 +136,11 @@ func Set(semver string, major string, minor string, patch string, release string
 
 		oldVer.Build = build
 	}
-
-	// TODO validar o resultado
-
-	return oldVer, nil
+	var buf bytes.Buffer
+	Show(&buf, oldVer, false, false)
+	v, err := ParseSemVer(buf.String())
+	if err != nil {
+		return Semver{}, err
+	}
+	return v, nil
 }

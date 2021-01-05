@@ -1,4 +1,4 @@
-package parser
+package cli
 
 import (
 	"fmt"
@@ -91,8 +91,8 @@ func Parse() {
 		AddFlag("major,M", "Decreases the major version", commando.String, "").
 		AddFlag("minor,m", "Decreases the minor version", commando.String, "").
 		AddFlag("patch,p", "Decreases the patch version", commando.String, "").
-		AddFlag("release,p", "Decreases the patch version", commando.String, "").
-		AddFlag("build,p", "Decreases the patch version", commando.String, "").
+		AddFlag("release,r", "Decreases the patch version", commando.String, "").
+		AddFlag("build,b", "Decreases the patch version", commando.String, "").
 		AddFlag("verbose,v", "Shows field names", commando.Bool, false).
 		AddFlag("linebreak,l", "Shows one field per line", commando.Bool, false).
 		SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {

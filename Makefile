@@ -3,8 +3,9 @@ tests:
 	docker-compose -f dev-compose.yml up --build tests
 clean:
 	@echo "Cleaning up build junk"
-	-docker-compose -f dev-compose.yml down
-	-rm -rf ./testdata
+	docker-compose -f dev-compose.yml down
+	rm -rf ./testdata
+	go clean
 
 build:
 	@echo "Building from source"
