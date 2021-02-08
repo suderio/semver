@@ -2,6 +2,8 @@
 
 Command-line tool for semantic versioning.
 
+This is just a toy project to start learning go in a more idiomatic way.
+
 ## Usage
 ```bash
 semver 1.2.3
