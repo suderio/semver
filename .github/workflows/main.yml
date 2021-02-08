@@ -38,3 +38,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           make install
+          make build
